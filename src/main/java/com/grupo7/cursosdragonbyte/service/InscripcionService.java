@@ -46,7 +46,7 @@ public Inscripcion inscribirUsuario(Long usuarioId, Long cursoId) {
     Inscripcion nuevaInscripcion = new Inscripcion();
     nuevaInscripcion.setUsuario(usuario);
     nuevaInscripcion.setCurso(curso);
-    nuevaInscripcion.setEstado(EstadoInscripcion.COMPLETO);
+    nuevaInscripcion.setEstado(EstadoInscripcion.ACTIVO);
   
     return inscripcionRepository.save(nuevaInscripcion);
     }
@@ -64,7 +64,7 @@ public Inscripcion completarCurso(Long inscripcionId) {
     Inscripcion inscripcion = inscripcionRepository.findById(inscripcionId)
             .orElseThrow(() -> new RuntimeException("Inscripción no encontrada."));
 
-    inscripcion.setEstado(EstadoInscripcion.COMPLETO);
+    inscripcion.setEstado(EstadoInscripcion.ACTIVO);
         
         
 
